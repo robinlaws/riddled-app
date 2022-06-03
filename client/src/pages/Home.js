@@ -1,49 +1,15 @@
-import React, { useRef, useState } from "react";
-import ReactDOM from "react-dom";
-import Keyboard from "react-simple-keyboard";
+import { UserKeyboard } from "../components/keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 import "../App.css";
 
 export function Home(){
-    const [input, setInput] = useState("");
-    const [layout, setLayout] = useState("default");
-    const keyboard = useRef();
-  
-    const onChange = input => {
-      setInput(input);
-      console.log("Input changed", input);
-    };
-  
-    const handleShift = () => {
-      const newLayoutName = layout === "default" ? "shift" : "default";
-      setLayout(newLayoutName);
-    };
-  
-    const onKeyPress = button => {
-      console.log("Button pressed", button);
-  
-      /**
-       * If you want to handle the shift and caps lock buttons
-       */
-      if (button === "{shift}" || button === "{lock}") handleShift();
-    };
-  
-    const onChangeInput = event => {
-      const input = event.target.value;
-      setInput(input);
-      keyboard.current.setInput(input);
-    };
+
     return (
 <>
-    <h1>HOME PAGE </h1>  
+    <h1>RIDDLED </h1>  
     <div className="App">
-      <Keyboard
-        keyboardRef={r => (keyboard.current = r)}
-        layoutName={layout}
-        onChange={onChange}
-        onKeyPress={onKeyPress}
-      />
+      <UserKeyboard/>
     </div>
     </>
   );
