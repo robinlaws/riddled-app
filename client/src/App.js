@@ -14,7 +14,7 @@ import './App.css';
 function App() {
   const getRiddle = () => {
     Axios.get(`/api/getRiddle`).then((response) => {
-      setRiddle(response.data[0])});
+      setRiddle(response.data)});
   }
   const [riddle, setRiddle] = useState([]);
   const [loading, setLoading] = useState(false);

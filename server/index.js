@@ -8,9 +8,13 @@ app.use(cors());
 mongoose.connect("mongodb+srv://robinlaws:36Empire@riddledcluster.7nxyj.mongodb.net/riddledDatabase?retryWrites=true&w=majority");
 
 app.get("/api/getRiddle", (req, res) => {
-    RiddleModel.find({}, (err, result) => {
+    const today = new Date();
+    today.setHours(0,0,0,0)
+    console.log(today);
+
+    RiddleModel.findOne({'date': [today]}, (err, result) => {
         if (err) {
-            res.json(error);
+            res.json(err);
         } else {
             res.json(result);
         }

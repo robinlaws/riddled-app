@@ -8,6 +8,10 @@ const RiddleSchema = new mongoose.Schema({
     solution: {
         type: String,
         required: true,
+    },
+    date: {
+        type: Date,
+        required: true
     }
 });
 const RiddleModel = mongoose.model("riddles", RiddleSchema);
