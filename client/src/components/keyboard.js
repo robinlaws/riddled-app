@@ -1,13 +1,13 @@
 import React, { useRef, useState } from "react";
-import ReactDOM from "react-dom";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 import "../App.css";
 
-export function UserKeyboard(){
+export function UserKeyboard(props){
     const [input, setInput] = useState("");
     const [layout, setLayout] = useState("default");
+    const [userGuess, setUserGuess] = useState("");
     const keyboard = useRef();
   
     const onChange = input => {
@@ -15,27 +15,26 @@ export function UserKeyboard(){
       console.log("Input changed", input);
     };
   
-    const handleShift = () => {
-      const newLayoutName = layout === "default" ? "shift" : "default";
-      setLayout(newLayoutName);
-    };
-  
     const onKeyPress = button => {
       console.log("Button pressed", button);
+      if (button === "{enter}"){
+        setUserGuess(input);
+        setInput("");
+        console.log(userGuess);
+        if (userGuess === (props.riddle.solution).toLowerCase()) {
+          props.isGuessCorrect(true);
+          console.log("Right!");
+        } else {
+            props.setRemainingTurns(props.remainingTurns - 1);
+            if (props.remainingTurns === 0){
+              props.setNoMoreTurns(true);
+            }
+          } 
+        }
+      };
   
-      /**
-       * If you want to handle the shift and caps lock buttons
-       */
-      if (button === "{shift}" || button === "{lock}") handleShift();
-    };
-  
-    const onChangeInput = event => {
-      const input = event.target.value;
-      setInput(input);
-      keyboard.current.setInput(input);
-    };
     return (
-<>
+  <>
     <div className="App">
       <Keyboard
         keyboardRef={r => (keyboard.current = r)}
