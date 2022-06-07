@@ -44,7 +44,7 @@ export function riddleDisplay(props){
   <div>
     <h1>RIDDLED </h1>
     <p>{props.riddle.riddle}</p>  
-    <p>{props.riddle.solution}</p>
+    {/* <p>{props.riddle.solution}</p> */}
   </div>
   )
 };
@@ -52,7 +52,8 @@ export function riddleDisplay(props){
 export function endOfTurns(props){
   return (
     <div>
-    <p>SORRY OUT OF TURNS. THE ANSWER IS {props.riddle.solution} </p>
+    <p>SORRY OUT OF TURNS. THE ANSWER IS</p>
+    <p>{props.riddle.solution}</p>
     </div>
   )
 };

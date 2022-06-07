@@ -44,11 +44,11 @@ export function UserKeyboard(props){
     return (
       <>
         <div className="App">
-          <p>GUESS: {input}</p>
+          <p>ENTER YOUR GUESS: {input}</p>
           <ul style={{listStyleType: "none"}}>
             {userGuess.map((guess, i) => (
               <div key={i}>
-                <li>{i+1}    {guess}</li>
+                <li>guess {i+1}:    {guess}</li>
               </div>
             ))}
           </ul>
