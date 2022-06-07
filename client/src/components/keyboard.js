@@ -10,13 +10,10 @@ export function UserKeyboard(props){
     const [userGuess, setUserGuess] = useState("");
     const keyboard = useRef();
   
-    const onChange = input => {
-      setInput(input);
-      console.log("Input changed", input);
-    };
-  
     const onKeyPress = button => {
       console.log("Button pressed", button);
+      setInput(input + button);
+      console.log(input);
       if (button === "{enter}"){
         setUserGuess(input);
         setInput("");
@@ -31,6 +28,7 @@ export function UserKeyboard(props){
             }
           } 
         }
+        setUserGuess("");
       };
   
     return (
@@ -39,7 +37,6 @@ export function UserKeyboard(props){
       <Keyboard
         keyboardRef={r => (keyboard.current = r)}
         layoutName={layout}
-        onChange={onChange}
         onKeyPress={onKeyPress}
       />
     </div>

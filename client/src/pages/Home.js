@@ -6,45 +6,65 @@ import "../App.css";
 
 export function Home(props){
   const [correctGuess, isGuessCorrect] = useState(false);
-  const [remainingTurns, setRemainingTurns] = useState(5);
-  const [noMoreTurns, setNoMoreTurns] = useState(false)
-
-  useEffect(() => {
-    console.log(remainingTurns);
-  }, [noMoreTurns])
-
+  const [remainingTurns, setRemainingTurns] = useState(4);
+  const [noMoreTurns, setNoMoreTurns] = useState(false);
 
   if (noMoreTurns){
     return(
-    <div>
-    <h1>RIDDLED </h1>
-    <p>{props.riddle.riddle}</p>  
-    <p>{props.riddle.solution}</p>
-    <p>SORRY OUT OF TURNS. THE ANSWER IS {props.riddle.solution} </p>
-  </div>
+    <>
+    {riddleDisplay(props)}
+    {endOfTurns(props)}
+    </>
     )
   }
 
   if (correctGuess){
-      return (
-        <div>
-        <h1>RIDDLED </h1>
-        <p>{props.riddle.riddle}</p>  
-        <p>{props.riddle.solution}</p>
-        <p>WAY TO GO!</p>
-    </div>
-      )};
+    return(
+     <>
+        {riddleDisplay(props)}
+        {guessCorrect()}
+      </>
+      )
+  }
 
-    return (
-    <>
+    else {
+      return(
+        <>
+        {riddleDisplay(props)}
+        <div className="App"> 
+        <UserKeyboard riddle={props.riddle} isGuessCorrect={isGuessCorrect} remainingTurns={remainingTurns} setRemainingTurns={setRemainingTurns} setNoMoreTurns={setNoMoreTurns}/>
+      </div>
+      </>
+      )
+    }
+  }
+
+export function riddleDisplay(props){
+  return(
+  <div>
     <h1>RIDDLED </h1>
     <p>{props.riddle.riddle}</p>  
     <p>{props.riddle.solution}</p>
-    <input type="text" placeholder="guess"></input>
-    <input type="submit"></input>
-    <div className="App">
-      <UserKeyboard riddle={props.riddle} isGuessCorrect={isGuessCorrect} remainingTurns={remainingTurns} setRemainingTurns={setRemainingTurns} setNoMoreTurns={setNoMoreTurns}/>
+  </div>
+  )
+}
+
+export function endOfTurns(props){
+  return (
+    <div>
+    <p>SORRY OUT OF TURNS. THE ANSWER IS {props.riddle.solution} </p>
     </div>
-    </>
-  );
-};
+  )
+}
+
+export function guessCorrect(){
+  return (
+    <div>
+    <p>WAY TO GO!</p>
+    </div>
+  )
+}
+
+
+
+
