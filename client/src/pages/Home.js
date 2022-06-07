@@ -47,7 +47,7 @@ export function riddleDisplay(props){
     <p>{props.riddle.solution}</p>
   </div>
   )
-}
+};
 
 export function endOfTurns(props){
   return (
@@ -55,7 +55,7 @@ export function endOfTurns(props){
     <p>SORRY OUT OF TURNS. THE ANSWER IS {props.riddle.solution} </p>
     </div>
   )
-}
+};
 
 export function guessCorrect(){
   return (
@@ -63,7 +63,7 @@ export function guessCorrect(){
     <p>WAY TO GO!</p>
     </div>
   )
-}
+};
 
 
 
