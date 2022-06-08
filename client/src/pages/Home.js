@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { UserKeyboard } from "../components/keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
@@ -40,11 +40,11 @@ export function Home(props){
   }
 
 export function riddleDisplay(props){
-  return(
+  return (
   <div>
     <h1>RIDDLED </h1>
-    <p>{props.riddle.riddle}</p>  
-    {/* <p>{props.riddle.solution}</p> */}
+    {/*<p>{props.riddle.riddle}</p>*/}
+    {/*<p>{props.riddle.solution}</p>*/}
   </div>
   )
 };
