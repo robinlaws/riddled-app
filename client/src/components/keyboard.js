@@ -50,6 +50,7 @@ export function UserKeyboard(props){
     else if (button === "{enter}"){
       setUserGuess(userGuess.concat(input));
       checkGuess(input);
+      setInput("");
     }
 
     else {
@@ -71,6 +72,7 @@ export function UserKeyboard(props){
         <button onClick={hintCount}>Get Hint</button>
         </div> 
         <br></br>
+        <div>Guess: {input}</div>
 
         <div className="App">
         {inputs}
