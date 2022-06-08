@@ -62,7 +62,7 @@ export function Home(props){
   }
 
 export function riddleDisplay(props){
-  return(
+  return (
   <div>
     <h1>RIDDLED </h1>
     <p>{props.riddle.riddle}</p>
