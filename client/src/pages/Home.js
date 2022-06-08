@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { UserKeyboard } from "../components/keyboard";
 import "react-simple-keyboard/build/css/index.css";
-import {Stats} from "../pages/Stats";
 
 import "../App.css";
 
@@ -16,38 +15,34 @@ export function Home(props){
     user1.gamesPlayed += 1;
     localStorage.setItem('user', JSON.stringify(user1));
     return(
-    <>
-    {riddleDisplay(props)}
-    {endOfTurns(props)}
-    </>
+      <>
+        {riddleDisplay(props)}
+        {endOfTurns(props)}
+      </>
     )
-  }
-
-  if (correctGuess){
-      user1.wins +=1
-      user1.gamesPlayed += 1;
-      switch(remainingTurns) {
-          case 0: user1.five +=1;
-                  break;
-          case 1: user1.four +=1;
-                  break;
-          case 2: user1.three +=1;
-                  break;
-          case 3: user1.two +=1;
-                  break;
-          case 4: user1.one +=1;
-                  break;
-      }
-      localStorage.setItem('user', JSON.stringify(user1));
+  } if (correctGuess){
+    user1.wins +=1
+    user1.gamesPlayed += 1;
+    switch(remainingTurns) {
+        case 0: user1.five +=1;
+                break;
+        case 1: user1.four +=1;
+                break;
+        case 2: user1.three +=1;
+                break;
+        case 3: user1.two +=1;
+                break;
+        case 4: user1.one +=1;
+                break;
+    }
+    localStorage.setItem('user', JSON.stringify(user1));
     return(
-     <>
+      <>
         {riddleDisplay(props)}
         {guessCorrect()}
       </>
-      )
-  }
-
-    else {
+    )
+  } else {
       return(
         <>
         {riddleDisplay(props)}
@@ -57,7 +52,7 @@ export function Home(props){
       </>
       )
     }
-  }
+  };
 
 export function riddleDisplay(props){
   return(
@@ -72,8 +67,8 @@ export function riddleDisplay(props){
 export function endOfTurns(props){
   return (
     <div>
-    <p>SORRY OUT OF TURNS. THE ANSWER IS</p>
-    <p>{props.riddle.solution}</p>
+      <p>SORRY OUT OF TURNS. THE ANSWER IS</p>
+      <p>{props.riddle.solution}</p>
     </div>
   )
 };
@@ -81,7 +76,7 @@ export function endOfTurns(props){
 export function guessCorrect(){
   return (
     <div>
-    <p>WAY TO GO!</p>
+      <p>WAY TO GO!</p>
     </div>
   )
 };
@@ -101,8 +96,7 @@ export function getUser(){
       }
       window.localStorage.setItem("user", JSON.stringify(user));
   }
-
-}
+};
 
 
 
