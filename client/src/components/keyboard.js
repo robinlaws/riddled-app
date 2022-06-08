@@ -11,10 +11,10 @@ export function UserKeyboard(props){
   const keyboard = useRef();
 
   const checkGuess = (input) => {
+    props.setRemainingTurns(props.remainingTurns - 1);
     if (input === props.riddle.solution.toLowerCase()) {
       props.isGuessCorrect(true);
     } else {
-        props.setRemainingTurns(props.remainingTurns - 1);
         if (props.remainingTurns === 0){
           props.setNoMoreTurns(true);
         }
