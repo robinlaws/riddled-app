@@ -43,7 +43,6 @@ export function Home(props){
      <>
         {riddleDisplay(props)}
         {guessCorrect()}
-        <Stats user={user1}/>
       </>
       )
   }

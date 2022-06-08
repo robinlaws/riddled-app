@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {Stats} from '../pages/Stats';
 
 export function Nav() {
     return (
@@ -13,7 +14,7 @@ export function Nav() {
       <div class="dropdown">
         <button class="dropbtn">Stats</button>
           <div class="dropdown-content">
-            <p>these are your stats</p>
+            <Stats/>
           </div>
         </div> 
       </div>
