@@ -36,6 +36,8 @@
 .dropdown {
   float: left;
   overflow: hidden;
+  position: relative;
+
 }
 
 .dropdown .dropbtn {
@@ -75,7 +77,6 @@
 .dropdown-content a:hover {
   background-color: #ddd;
 }
-
 
 .dropdown:hover .dropdown-content {
   display: block;
@@ -125,4 +126,6 @@ input {
   margin-top: 100px;
 
 }
-
+.show {
+  display: block;
+}

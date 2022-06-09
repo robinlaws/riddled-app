@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-export function Stats(){
+export function Stats(props){
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
     useEffect(()=>{
         setUser(JSON.parse(localStorage.getItem('user')));
-    },[])      
+    },[props.refresh])      
     
     return(
         <>
