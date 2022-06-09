@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 export function Stats(props){
-    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
-    useEffect(()=>{
-        setUser(JSON.parse(localStorage.getItem('user')));
-    },[props.refresh])      
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));   
     
     return(
         <>
+        <h1>RIDDLED STATS</h1>
         <h4>GAMES PLAYED: {user.gamesPlayed}</h4>
         <h4>GAMES WON: {user.wins}</h4>
         <h4>GUESS DISTRIBUTION: </h4>
