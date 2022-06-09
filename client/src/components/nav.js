@@ -16,8 +16,7 @@ export function Nav() {
       //     <div id="statsDropdown" className="dropdown-content">
       //       <Stats/>
       //     </div>
-      //   </div> 
-      // </div>
+      //   </div>
       <div className="navbar">
         <nav>
           <Link to="/">Home</Link>
@@ -25,5 +24,5 @@ export function Nav() {
           <Link to="/stats" >Stats</Link>
         </nav>
       </div>
-    )};
+    )}
 
