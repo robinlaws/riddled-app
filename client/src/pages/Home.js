@@ -62,8 +62,8 @@ export function riddleDisplay(props){
   return (
   <div>
     <h1>RIDDLED </h1>
-    <p>{props.riddle.riddle}</p>
-    {/* <p>{props.riddle.solution}</p> */}
+    {<p>{props.riddle.riddle}</p>}
+    {/*<p>{props.riddle.solution}</p>*/}
   </div>
   )
 }

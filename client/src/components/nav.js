@@ -8,7 +8,9 @@ export function Nav() {
         <div className="dropdown">
           <button className="dropbtn">How to Play</button>
             <div className="dropdown-content">
-              <p>this is how you play</p>
+              <p>Guess the RIDDLED in 5 attempts or less!</p>
+              <p>Click Get Hint to recieve a hint. This will cause you to lose an attempt.</p>
+              <p>Hit the enter button to submit your guess. A new RIDDLED is available each day for you to guess!</p>
             </div>
           </div> 
       <div className="dropdown">
