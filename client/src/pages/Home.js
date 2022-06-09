@@ -38,11 +38,12 @@ export function Home(props){
                   break;
       }
       localStorage.setItem('user', JSON.stringify(user1));
+      let refresh = true;
       return(
         <>
             {riddleDisplay(props)}
             {guessCorrect()}
-            <Stats user={user1}/>
+            <Stats/>
         </>
     )
   } else {
