@@ -10,7 +10,7 @@ export function Stats(props){
     useEffect(()=>{
         setUser(JSON.parse(localStorage.getItem('user')));
     },[props.refresh])   
-    
+
     const statStyle = {
         fontWeight: "bold",
         fontSize: 30,
@@ -78,6 +78,7 @@ export function Stats(props){
         </div>
 
         </div>
+
         </>
     )       
 };

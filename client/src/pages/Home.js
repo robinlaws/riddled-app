@@ -38,11 +38,11 @@ export function Home(props){
                   break;
       }
       localStorage.setItem('user', JSON.stringify(user1));
-      let refresh = true;
       return(
         <>
             {riddleDisplay(props)}
-            {guessCorrect()}
+            {guessCorrect(props)}
+            <br/>
             <Stats/>
         </>
     )
@@ -63,7 +63,6 @@ export function riddleDisplay(props){
   <div class='font'>
     <h1>RIDDLED </h1>
     {<p>{props.riddle.riddle}</p>}
-    {/*<p>{props.riddle.solution}</p>*/}
   </div>
   )
 }
@@ -72,15 +71,16 @@ export function endOfTurns(props){
   return (
     <div>
       <p>SORRY OUT OF TURNS. THE ANSWER IS</p>
-      <p>{props.riddle.solution}</p>
+      <p>THE ANSWER IS: {props.riddle.solution}</p>
     </div>
   )
 }
 
-export function guessCorrect(){
+export function guessCorrect(props){
   return (
     <div>
       <p>WAY TO GO!</p>
+      <p>THE ANSWER IS: {props.riddle.solution}</p> 
     </div>
   )
 }
