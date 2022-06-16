@@ -1,21 +1,83 @@
 import React, { useEffect, useState } from "react";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import ProgressBar from 'react-bootstrap/ProgressBar'
+
 
 export function Stats(props){
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
     useEffect(()=>{
         setUser(JSON.parse(localStorage.getItem('user')));
-    },[props.refresh])      
+    },[props.refresh])   
     
+    const statStyle = {
+        fontWeight: "bold",
+        fontSize: 30,
+        columnWidth: 100
+    };
+    const textStyle = {
+        fontSize: 18
+    };
+    const borderStyle = {
+        borderStyle: "solid",
+        borderRadius: 5,
+        borderWidth: 1,
+    };
+    const guessDistrStyle = {
+        textAlign: "right",
+        fontWeight: "bold",
+        fontSize: 16,
+        fontFamily: "helvetica"
+    }
+
     return(
-        <>
-        <h4>GAMES PLAYED: {user.gamesPlayed}</h4>
-        <h4>GAMES WON: {user.wins}</h4>
-        <h4>GUESS DISTRIBUTION: </h4>
-        <h4>One: {user.one}</h4>
-        <h4>Two: {user.two}</h4>
-        <h4>Three: {user.three}</h4>
-        <h4>Four: {user.four}</h4>
-        <h4>Five: {user.five}</h4>
+        <>    
+        <br/>
+        <div class="container" style={{borderStyle: "solid", borderRadius: 5, borderWidth: 2, width: 1050, backgroundColor: "#f5f5f5"}}>
+
+        <div style={{marginTop: 10}}>
+            <Container >
+                <Row style={statStyle} lg={6} className="justify-content-md-center">
+                    <Col >{user.gamesPlayed}</Col>
+                    <Col >{user.wins}</Col>
+                    <Col >{(user.wins/user.gamesPlayed*100).toFixed(0)}</Col>
+                </Row>
+                <Row style={textStyle} lg={6} className="justify-content-md-center">
+                    <Col>GAMES PLAYED</Col>
+                    <Col>GAMES WON</Col>
+                    <Col>WIN %</Col>
+                </Row>
+            </Container>
+        </div>
+
+        <div class="stats" style={{marginBottom: 15}}>
+            <br/>
+            <h4 style={{fontWeight: "bold", fontSize: 20}}>GUESS DISTRIBUTION</h4>
+
+            <Row >
+                <Col style={guessDistrStyle}>1</Col>
+                <Col><ProgressBar now={user.one} max="5" style={{width: 300}} /></Col>
+            </Row>
+            <Row >
+                <Col style={guessDistrStyle}>2</Col>
+                <Col><ProgressBar now={user.two} max="5" style={{width: 300}} /></Col>
+            </Row>
+            <Row >
+                <Col style={guessDistrStyle}>3</Col>
+                <Col><ProgressBar now={user.three} max="5" style={{width: 300}} /></Col>
+            </Row>
+            <Row >
+                <Col style={guessDistrStyle}>4</Col>
+                <Col><ProgressBar now={user.four} max="5" style={{width: 300}} /></Col>
+            </Row>
+            <Row >
+                <Col style={guessDistrStyle}>5</Col>
+                <Col><ProgressBar now={user.five} max="5" style={{width: 300}} /></Col>
+            </Row>
+        </div>
+
+        </div>
         </>
     )       
 };
