@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 import React, {  useRef, useState } from "react";
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
@@ -43,13 +44,15 @@ export function UserKeyboard(props){
   
     if (count === 1) {
       const charsInSolution = (props.riddle.solution).length;
-      hintString += `The answer is ${charsInSolution} characters long!`
-      alert(hintString)
+      hintString += `HINT: The answer is ${charsInSolution} characters long!`
+      setUserGuess(userGuesses.concat(hintString));
+      checkGuess("");
     }
     if (count === 2 || count === 3 || count === 4 || count === 5) {
       let char = getLetterHint(solutionArray);
       hintString += `The answer contains the letter ${char.toUpperCase()}`
-      alert(hintString)
+      setUserGuess(userGuesses.concat(hintString));
+      checkGuess("");
     }
   };
 
@@ -108,11 +111,9 @@ export function UserKeyboard(props){
       <>
 
         <div>
-        <button onClick={hintCount}>Get Hint</button>
+        <Button className="bg-custom-button" onClick={hintCount}>Get Hint</Button>
         </div> 
         <br></br>
-        <div>Guess: {input}</div>
-
         <div className="App">
         {inputs}
         <br></br>
@@ -126,9 +127,9 @@ export function UserKeyboard(props){
             layout={{
               default: [
                 "1 2 3 4 5 6 7 8 9 0 {bksp}",
-                "q w e r t y u i o p ",
+                "q w e r t y u i o p",
                 "a s d f g h j k l ' {enter}",
-                "z x c v b n m , . ",
+                "z x c v b n m , .",
                 ".com @ {space}"
               ]
             }}
